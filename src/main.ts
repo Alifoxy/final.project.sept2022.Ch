@@ -10,6 +10,10 @@ async function bootstrap() {
   const prismaService = app.get(PrismaService);
 
   await prismaService.onModuleInit();
+  
+  app.enableCors({
+    origin: 'http://localhost:4200',
+  });
 
   app.useGlobalPipes(new ValidationPipe());
 
